@@ -1,18 +1,22 @@
 import { registerApplication, start } from "single-spa";
 import * as isActive from "./activity-functions";
 
-registerApplication({
-  name: "@fabio-milheiro/navbar",
-  app: () => System.import("@fabio-milheiro/navbar"),
-  activeWhen: "/",
-});
+// registerApplication({
+//   name: "@fabio-milheiro/navbar",
+//   app: () => System.import("@fabio-milheiro/navbar"),
+//   activeWhen: "/",
+// });
 
-registerApplication({
-  name: "@fabio-milheiro/products",
-  app: () => System.import("@fabio-milheiro/products"),
-  activeWhen: "/products",
-});
+// registerApplication(
+//   "@fabio-milheiro/navbar",
+//   () => System.import("@fabio-milheiro/navbar"),
+//   isActive.navbar
+// );
 
-start({
-  urlRerouteOnly: true,
-});
+registerApplication(
+  "@fabio-milheiro/products",
+  () => System.import("@fabio-milheiro/products"),
+  isActive.products
+);
+
+start();
